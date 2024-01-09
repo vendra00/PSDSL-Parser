@@ -1,0 +1,243 @@
+// -------------------------------------------------------------
+//   $RCSfile:
+//    $Source:
+//      $Date:
+//    $Author:
+//  $Revision:
+//
+//  (c) Copyright 2016 Rockwell Automation, Life Science Application Center
+// -------------------------------------------------------------
+pharmaSuiteApiLevel PS_8_2
+
+import com.rockwell.ssb.ftps.phase.*
+
+PhaseParameterType Master_RDL_0100 {
+    name: "Master Bundle Identifier Description (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.mastbundlident0100.MESParamMastBundlIdent"
+}
+
+PhaseParameterType BooleanPropertyDefinition_RDL_0100 {
+    name: "Boolean Property Definition (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.booleanpropdef0100.MESParamBooleanPropDef0100"
+}
+
+PhaseParameterType DateTimePropertyDefinition_RDL_0100 {
+    name: "Date Time Property Definition (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.dattimepropdef0100.MESParamDatTimePropDef0100"
+}
+
+PhaseParameterType DecimalPropertyDefinition_RDL_0100 {
+    name: "Decimal Property Definition (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.decimpropdef0100.MESParamDecimPropDef0100"
+}
+
+PhaseParameterType MeasuredValuePropertyDefinition_RDL_0100 {
+    name: "Measured Value Property Definition (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.mvalpropdef0100.MESParamMValPropDef0100"
+}
+
+PhaseParameterType DurationPropertyDefinition_RDL_0100 {
+    name: "Duration Property Definition (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.duratpropdef0100.MESParamDuratPropDef0100"
+}
+
+PhaseParameterType LongPropertyDefinition_RDL_0100 {
+    name: "Long Property Definition (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.longpropdef0100.MESParamLongPropDef0100"
+}
+
+PhaseParameterType StringPropertyDefinition_RDL_0100 {
+    name: "String Property Definition (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.stringpropdef0100.MESParamStringPropDef0100"
+}
+
+PhaseParameterType BooleanOptions_RDL_0100 {
+    name: "Boolean Options (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.booleanoptions0100.MESParamBooleanOptions"
+}
+
+PhaseParameterType EquipmentPropertyHiddenPhaseConfiguration_RDL_0100 {
+    name: "Multiple Properties Hidden Phase Configuration (RDL) [1.0]"
+    class: "com.rockwell.ssb.ftps.parameter.mulpropshide0100.MESParamMulPropsHide"
+}
+
+MessagePack {
+    name: "rdl_PhaseSetMultRtProps0100"
+    description: "Set Multiple Equipment Runtime Properties"
+    InstructionText_Label: "<InstructionTextLabel (placeholder)>"
+    Entity_Label: "Entity:"
+    EntityIdentifier_Label: "<EntityIdentifierLabel (placeholder)>"
+    PropertyBundle_Label: "<PropertyBundleLabel (placeholder)>"
+    PropertyGridCompleted_Label: "<PropertyGridLabel (placeholder)>"
+    TheConfirmButton: "Confirm"
+    BooleanProperty_Name: "_booleanProperty"
+    DecimalProperty_Name: "_decimalProperty"
+    DTProperty_Name: "_dateTimeProperty"
+    DurationProperty_Name: "_durationProperty"
+    DurationProperty_DayLabel: "_durationDayProperty"
+    DurationProperty_HourLabel: "_durationHourProperty"
+    DurationProperty_MinuteLabel: "_durationMinuteProperty"
+    DurationProperty_SecondLabel: "_durationSecondProperty"
+    LongProperty_Name: "_longProperty"
+    MVProperty_Name: "_measuredValueProperty"
+    MVProperty_UoM: "_measuredValueUoM"
+    StringProperty_Name: "_stringProperty"
+    NAValue_Label: "N/A" // Error Messages (according to FDS)
+    EquConfigErr: "Equipment configuration is not correct. Please contact a system administrator"
+    EmptyValue_ErrorMsg: "{0}. You have to enter or select a value before you can confirm the phase"
+    EquPropMissingErr: "Equipment entity does not have provided property type or it is not a Runtime Property"
+    EquPropUoMErr: "UoM set for limits or for default value cannot be converted to the UoM defined for this phase"
+    MandatoryUoMErr: "UoM is mandatory field"
+    BundleIdentifierTooLongErr: "The identifier of the bundle parameter {0} is too long"
+    DataTypeFormatErr: "The format of the selected data type is not correct. Please correct the value" //
+    ValidationINTErr: "{0}. Value entered has Integral length bigger than allowed. Please correct the value"
+    ValidationFRErr: "{0}. Value entered has Fractional length bigger than allowed. Please correct the value"
+    HighLimitErr: "{0}. Date time entered is too high. Please correct the value"
+    LowLimitErr: "{0}. Date time entered is too low. Please correct the value"
+    StringLenghtLargerErr: "{0}. Value entered has length larger than allowed string limit definition. Please correct the value"
+    StringAllowedMaxLenghtErr: "String entered is too large. Please correct the value"
+    Property_HigherLimitException: "Higher limit: {0}"
+    Property_LowerLimitException: "Lower limit: {0}"
+    Property_UpperLimitException: "Upper limit: {0}"
+    Property_ExpectedLimitException: "Expected: {0}"
+    Property_ActualLimitException: "Actual value: {0}"
+}
+MessagePack {
+    name: "rdl_SetMultRtEqPropsChoiceListStrings"
+    description: "N/A,Yes,No choice list message pack"
+    rdl_SetMultRtEqPropsChoiceList-NA: "N/A"
+    rdl_SetMultRtEqPropsChoiceList-Yes: "Yes"
+    rdl_SetMultRtEqPropsChoiceList-No: "No"
+}
+ChoiceList {
+    name: "rdl_SetMultRtEqPropsChoiceList"
+    description: "N/A,Yes,No choice list"
+    messagePack: "rdl_SetMultRtEqPropsChoiceListStrings"
+    alphabetized: false
+    alwaysMandatory: true
+    ChoiceItem { value: 10 meaning: "NA" visible: true selectable: true editable: false }
+    ChoiceItem { value: 20 meaning: "Yes" visible: true selectable: true editable: false }
+    ChoiceItem { value: 30 meaning: "No" visible: true selectable: true editable: false }
+}
+Phase {
+    phaseName: "Set Multiple Equipment Runtime Properties"
+    description: "Set multiple equipment runtime properties of an S88 equipment entity"
+    customer: "RDL"
+    baseName: "SetMultRtProps0100"
+    visibleInNavigator: true
+    internalBuildingBlock: false
+    supportExceptions: true
+    supportBarcodes: false
+    hasReportDesign: true
+    materialInputMin: 0
+    materialInputMax: 0
+    materialOutputMin: 0
+    materialOutputMax: 0
+    eqRequirementMin: 0
+    eqRequirementMax: 0
+    atDefinitionPrefix: "L_"
+    usageContext: All
+    etoTriggerPhase: false
+    pauseAwarePhase: false
+    serverRunPhase: false
+
+    PhaseParameter { usageIdentifier: "Instruction" parameterType: Instruction_RS_0300 }
+    PhaseParameter { usageIdentifier: "Identified equipment entity" parameterType: EQObject_RS_0100 }
+    PhaseParameter { usageIdentifier: "Mismatching property" parameterType: ExceptionDefinition_RS_0300 }
+    PhaseParameter { usageIdentifier: "Mode" parameterType: PhaseCompletionMode_RS_0100 }
+    PhaseParameter { usageIdentifier: "Hidden phase configuration" parameterType: EquipmentPropertyHiddenPhaseConfiguration_RDL_0100 }
+
+    DynamicPhaseParameters {
+        maximumNumber: 10 //
+
+        DynamicPhaseBundle {
+            Parameter { usageIdentifier: "Decimal" parameterType: Master_RDL_0100 }
+            Parameter { usageIdentifier: "Property definition" parameterType: DecimalPropertyDefinition_RDL_0100 }
+            Parameter { usageIdentifier: "Enable cascade property propagation on assembled child entities" parameterType: BooleanFlag_RS_0100 }
+            Parameter { usageIdentifier: "Limit configuration" parameterType: ExceptionEnableDefinition_RS_0200 }
+        }DynamicPhaseBundle {
+            Parameter { usageIdentifier: "Long" parameterType: Master_RDL_0100 }
+            Parameter { usageIdentifier: "Property definition" parameterType: LongPropertyDefinition_RDL_0100 }
+            Parameter { usageIdentifier: "Enable cascade property propagation on assembled child entities" parameterType: BooleanFlag_RS_0100 }
+            Parameter { usageIdentifier: "Limit configuration" parameterType: ExceptionEnableDefinition_RS_0200 }
+        }DynamicPhaseBundle {
+            Parameter { usageIdentifier: "Measured Value" parameterType: Master_RDL_0100 }
+            Parameter { usageIdentifier: "Unit of Measure" parameterType: UoMDefinition_RS_0100 }
+            Parameter { usageIdentifier: "Property definition" parameterType: MeasuredValuePropertyDefinition_RDL_0100 }
+            Parameter { usageIdentifier: "Enable cascade property propagation on assembled child entities" parameterType: BooleanFlag_RS_0100 }
+            Parameter { usageIdentifier: "Limit configuration" parameterType: ExceptionEnableDefinition_RS_0200 }
+        }DynamicPhaseBundle {
+            Parameter { usageIdentifier: "Boolean" parameterType: Master_RDL_0100 }
+            Parameter { usageIdentifier: "Property definition" parameterType: BooleanPropertyDefinition_RDL_0100 }
+            Parameter { usageIdentifier: "Boolean options" parameterType: BooleanOptions_RDL_0100 }
+            Parameter { usageIdentifier: "Enable cascade property propagation on assembled child entities" parameterType: BooleanFlag_RS_0100 }
+            Parameter { usageIdentifier: "Limit configuration" parameterType: ExceptionEnableDefinition_RS_0200 }
+        }DynamicPhaseBundle {
+            Parameter { usageIdentifier: "String" parameterType: Master_RDL_0100 }
+            Parameter { usageIdentifier: "Property definition" parameterType: StringPropertyDefinition_RDL_0100 }
+            Parameter { usageIdentifier: "Enable cascade property propagation on assembled child entities" parameterType: BooleanFlag_RS_0100 }
+            Parameter { usageIdentifier: "Limit configuration" parameterType: ExceptionEnableDefinition_RS_0200 }
+        }DynamicPhaseBundle {
+            Parameter { usageIdentifier: "Duration" parameterType: Master_RDL_0100 }
+            Parameter { usageIdentifier: "Property definition" parameterType: DurationPropertyDefinition_RDL_0100 }
+            Parameter { usageIdentifier: "Enable cascade property propagation on assembled child entities" parameterType: BooleanFlag_RS_0100 }
+            Parameter { usageIdentifier: "Limit configuration" parameterType: ExceptionEnableDefinition_RS_0200 }
+        }DynamicPhaseBundle {
+            Parameter { usageIdentifier: "Date Time" parameterType: Master_RDL_0100 }
+            Parameter { usageIdentifier: "Property definition" parameterType: DateTimePropertyDefinition_RDL_0100 }
+            Parameter { usageIdentifier: "Enable cascade property propagation on assembled child entities" parameterType: BooleanFlag_RS_0100 }
+            Parameter { usageIdentifier: "Limit configuration" parameterType: ExceptionEnableDefinition_RS_0200 }
+        }
+    }
+    PhaseData { name: "EquipEntityId" description: "The equipment entity identifier" dataType: StringType }
+    PhaseData { name: "BundleId" description: "The user bundle identifier" dataType: StringType }
+    PhaseData { name: "Property" description: "The configured property" dataType: StringType }
+    PhaseData { name: "DecimalValue" description: "The decimal property value" dataType: BigDecimalType }
+    PhaseData { name: "LongValue" description: "The long property value" dataType: LongType }
+    PhaseData { name: "MeasuredValueValue" description: "The measured value property value" dataType: MeasuredValueType }
+    PhaseData { name: "BooleanValue" description: "The boolean property value" dataType: BoolType }
+    PhaseData { name: "StringValue" description: "The string property value" dataType: StringType stringLength: 2000 }
+    PhaseData { name: "DurationValue" description: "The duration property value" dataType: DurationType }
+    PhaseData { name: "DateTimeValue" description: "The date time property value" dataType: DateTimeType }
+    PhaseData { name: "DateTimeFormat" description: "String value of date time format" dataType: StringType } //
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // WARNING!
+    // The generated class MESRtPhaseOutputSetMultRtProps is overridden with MESRtPhaseOutputSetMultRtProps0100.
+    // If PhaseLibGenerator is run then this has to be manually re-applied to
+    // 1. src/configuration/dsx/ATRow/X_PhaseLib/_22C45267-E2F2-5C8B-D358-52698DC2969E_.xml > X_rtPhaseOuputClassName
+    // 2. the DB > AT_X_PhaseLib.X_rtPhaseOuputClassName_S
+    PhaseOutput { name: "Values" displayName: "Values" description: "Configured properties with new properties values" dataType: BinaryType }
+    PhaseOutput { name: "EquipmentEntity" displayName: "Equipment Entity" description: "Identified equipment entity" dataType: EquipmentEntityType }
+    PhaseOutput { name: "ExceptionRecorded" displayName: "Exception recorded" description: "Flag for recorded exception" dataType: BoolType }
+
+    PhasePanel {
+        name: PreviewPanel
+        cols: "left:800px, 9px, right:pref"
+        rows: "pref:grow, 6px, pref, 6px, pref, 6px, pref"
+        Control InstructionText_Label { type: Label x: 1 y: 1 colSpan: 3 multiline: true }
+        Control Entity_Label { type: Label x: 1 y: 3 colSpan: 3 multiline: true }
+        Control PropertiesPreview { type: Custom x: 1 y: 5 colSpan: 1 multiline: false }
+        Control TheConfirmButton { type: ConfirmButton x: 3 y: 7 hideBarcode: true }
+    }
+    PhasePanel {
+        name: ActivePanel
+        cols: "left:200px, 9px, left:590px, 9px, right:166px"
+        rows: "pref:grow, 6px, pref, 6px, pref, 6px, pref"
+        Control InstructionText_Label { type: Label x: 1 y: 1 colSpan: 5 multiline: true }
+        Control Entity_Label { type: Label x: 1 y: 3 colSpan: 1 multiline: true }
+        Control EntityIdentifier_Label { type: Label x: 3 y: 3 colSpan: 1 multiline: true }
+        Control PropertiesActive { type: Custom x: 1 y: 5 colSpan: 3 multiline: false }
+        Control TheConfirmButton { type: ConfirmButton x: 5 y: 7 enabled: true hideBarcode: true }
+    }
+    PhasePanel {
+        name: CompletedPanel
+        cols: "left:200px, 9px, left:590px, 9px, right:166px"
+        rows: "pref:grow, 6px, pref, 6px, pref, 6px, pref"
+        Control InstructionText_Label { type: Label x: 1 y: 1 colSpan: 5 multiline: true }
+        Control Entity_Label { type: Label x: 1 y: 3 colSpan: 1 multiline: true }
+        Control EntityIdentifier_Label { type: Label x: 3 y: 3 colSpan: 1 multiline: true }
+        Control PropertyGridCompleted_Label { type: Label x: 1 y: 5 colSpan: 5 multiline: true }
+        Control TheConfirmButton { type: ConfirmButton x: 5 y: 7 enabled: false hideBarcode: false }
+    }
+}

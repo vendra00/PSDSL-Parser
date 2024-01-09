@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:element name="PhaseLibDescription">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="OutputDir">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:minLength value="1" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="Name" type="Name64Type" />
+                <xsd:element name="Description">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:minLength value="3" />
+                            <xsd:maxLength value="255" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ShortDescription" minOccurs="0" maxOccurs="1">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:minLength value="1" />
+                            <xsd:maxLength value="80" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="SubroutineName" type="Name64Type" minOccurs="0" maxOccurs="1" />
+                <xsd:element name="PackageName" type="Name64Type" />
+                <xsd:element name="PhaseLibBaseName">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:minLength value="3" />
+                            <xsd:maxLength value="18" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="VisibleInNavigator">
+                    <xsd:complexType>
+                        <xsd:attribute name="value" type="xsd:boolean" />
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="InternalBuildingBlock">
+                    <xsd:complexType>
+                        <xsd:attribute name="value" type="xsd:boolean" default="false" />
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="ReportDesignName" type="Name64Type" minOccurs="0" maxOccurs="1" />
+                <xsd:element name="SupportExceptions" minOccurs="0" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:attribute name="value" type="xsd:boolean" default="false" />
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="MaterialInputMin">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                            <xsd:minInclusive value="0" />
+                            <xsd:maxInclusive value="50" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MaterialInputMax">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                            <xsd:minInclusive value="0" />
+                            <xsd:maxInclusive value="50" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MaterialOutputMin">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                            <xsd:minInclusive value="0" />
+                            <xsd:maxInclusive value="50" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MaterialOutputMax">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                            <xsd:minInclusive value="0" />
+                            <xsd:maxInclusive value="50" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="EquipmentRequirementMin" minOccurs="0" maxOccurs="1">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                            <xsd:minInclusive value="0" />
+                            <xsd:maxInclusive value="50" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="EquipmentRequirementMax" minOccurs="0" maxOccurs="1">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                            <xsd:minInclusive value="0" />
+                            <xsd:maxInclusive value="50" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ATDefinitionPrefix">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:minLength value="1" />
+                            <xsd:maxLength value="3" />
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="UsageContext" type="UsageContextType" minOccurs="1" maxOccurs="unbounded" />
+                <xsd:element name="IsETOTriggerPhase" minOccurs="0" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:attribute name="value" type="xsd:boolean" default="false" />
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="IsServerRunPhase" minOccurs="0" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:attribute name="value" type="xsd:boolean" default="false" />
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="IsPauseAwarePhase" minOccurs="0" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:attribute name="value" type="xsd:boolean" default="false" />
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="ParameterClasses" minOccurs="0" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="ParameterClass" type="ParameterClassType" minOccurs="0" maxOccurs="unbounded" />
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="DynamicParameterClasses" minOccurs="0" maxOccurs="1">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="MaximumNumber">
+                                <xsd:simpleType>
+                                    <xsd:restriction base="xsd:integer">
+                                        <xsd:minInclusive value="1" />
+                                    </xsd:restriction>
+                                </xsd:simpleType>
+                            </xsd:element>
+                            <xsd:element name="DynamicParameterClass" minOccurs="1" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="MaximumNumber" minOccurs="0" maxOccurs="1">
+                                            <xsd:simpleType>
+                                                <xsd:restriction base="xsd:integer">
+                                                    <xsd:minInclusive value="1" />
+                                                </xsd:restriction>
+                                            </xsd:simpleType>
+                                        </xsd:element>
+                                        <xsd:element name="Name" type="Name64Type" />
+                                        <xsd:element name="UsageIdentifier" type="Name64Type" />
+                                        <xsd:element name="DependentParameterClass" type="ParameterClassType" minOccurs="0" maxOccurs="unbounded" />
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ParameterClassType">
+        <xsd:sequence>
+            <xsd:element name="Name" type="Name64Type" />
+            <xsd:element name="UsageIdentifier" type="Name64Type" />
+            <xsd:element name="SortIndex" minOccurs="0" maxOccurs="1">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:integer" />
+                </xsd:simpleType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="Name64Type">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="3" />
+            <xsd:maxLength value="64" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="UsageContextType">
+        <xsd:restriction base="xsd:string">
+            <!-- possible values must be choice element meanings of -->
+            <!-- choice list "PhaseUsageContext" -->
+            <xsd:enumeration value="Recipe" />
+            <xsd:enumeration value="Workflow" />
+            <xsd:enumeration value="All" />
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
